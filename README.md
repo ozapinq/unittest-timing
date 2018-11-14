@@ -11,13 +11,34 @@ $ cd unittest-timing && python setup.py install
 ## Usage
 
 ```python
-from unittest_timing.runner import TimingTestRunner
+from unittest_timing import TimingTestRunner
 from unittest.loader import TestLoader
 
 suite = TestLoader().discover('.')
 runner = TimingTestRunner()
 runner.run(suite)
 ```
+
+### Usage with Django
+
+```python
+# my_project/runner.py
+
+from django.test.runner import DiscoverRunner
+from unittest_timing import TimingTestRunner
+
+
+class MyRunner(DiscoverRunner):
+    test_runner = TimingTestRunner
+
+```
+
+```python
+# my_project/settings.py
+
+TEST_RUNNER = 'my_project.runner.MyRunner'
+```
+
 
 ## Example output
 
