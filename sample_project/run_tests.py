@@ -1,4 +1,4 @@
-from unittest_timing.runner import TimingTestRunner
+from unittest_timing import TimingTestRunner
 from unittest.loader import TestLoader
 
 
